@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Pie } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 import { Chart, ChartData, ChartOptions, registerables } from 'chart.js';
 import { faker } from '@faker-js/faker';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
@@ -77,8 +77,8 @@ const generateColors = (numColors: number): string[] => {
   return colors;
 };
 
-const IceCreamFlavourChart = () => {
-  const [chartData, setChartData] = useState<ChartData<'pie'>>({
+const IceCreamFlavourChartDoughnut = () => {
+  const [chartData, setChartData] = useState<ChartData<'doughnut'>>({
     labels: [],
     datasets: [],
   });
@@ -94,7 +94,7 @@ const IceCreamFlavourChart = () => {
     const likedBy = surveyData.map((data) => data.likedBy);
     const colors = generateColors(numFlavors);
 
-    const data: ChartData<'pie'> = {
+    const data: ChartData<'doughnut'> = {
       labels,
       datasets: [
         {
@@ -110,7 +110,7 @@ const IceCreamFlavourChart = () => {
     setChartData(data);
   }, []);
 
-  const chartOptions: ChartOptions<'pie'> = {
+  const chartOptions: ChartOptions<'doughnut'> = {
     responsive: true,
     plugins: {
       legend: {
@@ -159,9 +159,9 @@ const IceCreamFlavourChart = () => {
       }}
     >
       <h2>Favorite Ice-Cream Flavors</h2>
-      <Pie data={chartData} options={chartOptions} />
+      <Doughnut data={chartData} options={chartOptions} />
     </div>
   );
 };
 
-export default IceCreamFlavourChart;
+export default IceCreamFlavourChartDoughnut;

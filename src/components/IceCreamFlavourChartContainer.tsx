@@ -1,9 +1,9 @@
-import PieChart from './IceCreamFlavourChart';
+import IceCreamFlavourChart from './IceCreamFlavourChart';
 
 const IceCreamFlavourChartContainer = () => {
   return (
     <div className="card">
-      <PieChart />
+      <IceCreamFlavourChart />
     </div>
   );
 };
